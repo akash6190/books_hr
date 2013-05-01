@@ -1,23 +1,23 @@
 <div id='app-edit'>
-<div class="row">
+<div class="row well">
 	<form class="form-horizontal" id="edit-book-form" action='/books/<%= @book.get 'id' %>' method='post'>
 		<input name="_method" type="hidden" value="put" />
 		<div class="control-group">
 			<label class="control-label" for="name">Name </label>
 			<div class="controls">
-				<input type="text" id="name" placeholder="Book Name" value="<%= @book.get 'name' %>">
+				<input type="text" id="name" placeholder="Book Name" class='span8' value="<%= @book.get 'name' %>">
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="author">Author</label>
 			<div class="controls">
-				<input type="text" id="author" placeholder="Book Author" value="<%= @book.get 'author' %>">
+				<input type="text" id="author" placeholder="Book Author" class='span8'  value="<%= @book.get 'author' %>">
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="status"> Status </label>
 			<div class="controls">
-				<select id="status">
+				<select id="status"  class='span8' >
 					<option disabled="disabled">Choose Book Status</option>
 					<option value="1" <%= if ( @book.get('status') is true) then 'selected' %> >Read</option>
 					<option value="0" <%= if ( @book.get('status') is false) then 'selected' %> >Not Read</option>
@@ -28,9 +28,8 @@
 			<div class="controls">
 				<div class="btn-group">
 					<button class="btn edit-book" type='submit'>
-						<i class='icon-pencil'></i>
+						<i class='icon-pencil'></i> Edit
 					</button>
-					<a class="btn btn-danger remove-book"> <i class='icon-trash'></i> </a>
 				</div>
 			</div>
 		</div>
