@@ -1,0 +1,47 @@
+<div class="row">
+	<form class="form-horizontal" id="add-book-form">
+		<div class="control-group">
+			<label class="control-label" for="name">Name</label>
+			<div class="controls">
+				<input type="text" id="name" placeholder="Book Name">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="author">Author</label>
+			<div class="controls">
+				<input type="text" id="author" placeholder="Book Author">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="status"> Status </label>
+			<div class="controls">
+				<select id="status">
+					<option disabled="disabled" selected="selected">Choose Book Status</option>
+					<option value="1">Read</option>
+					<option value="0">Not Read</option>
+				</select>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<button type="submit" class="btn">
+					Add Book
+				</button>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="row">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Author</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody id="books">
+		</tbody>
+	</table>
+</div>
