@@ -1,4 +1,10 @@
 <td><%= @book.get 'name' %></td>
 <td><%= @book.get 'author' %></td>
-<td><%= @book.get 'status' %></td>
-<td><button class="btn edit-book" type="button"><i class='icon-pencil'></i></button><button class="btn btn-danger remove-book" type="button"><i class='icon-trash'></i></button></td>
+<td><%= if ( @book.get('status') is true) then 'Read' else if(@book.get('status') is false) then 'Not Read' %></td>
+<td>
+<div class="btn-group">
+	<a class="btn edit-book" href='#<%= @book.get 'id' %>'>
+		<i class='icon-pencil'></i>
+	</button>
+	<a class="btn btn-danger remove-book"> <i class='icon-trash'></i> </a>
+</div></td>

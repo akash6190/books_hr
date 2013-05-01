@@ -6,10 +6,8 @@ class BooksHr.Views.BooksIndex extends Backbone.View
   initialize: ->
     @collection.bind 'reset', @render, @
     @collection.bind 'add', @addBook, @
-    
   render: ->
-    $(@el).html(@template())
-    console.log(@$)
+    @$el.html(@template())
     @collection.each (book) =>
       view = new BooksHr.Views.BooksItem model: book
       @$('#books').append view.render().el

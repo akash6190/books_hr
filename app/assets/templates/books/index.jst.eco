@@ -1,4 +1,4 @@
-<div class="row">
+<div id='app-index'><div class="row">
 	<form class="form-horizontal" id="add-book-form">
 		<div class="control-group">
 			<label class="control-label" for="name">Name</label>
@@ -44,4 +44,5 @@
 		<tbody id="books">
 		</tbody>
 	</table>
+</div>
 </div>
