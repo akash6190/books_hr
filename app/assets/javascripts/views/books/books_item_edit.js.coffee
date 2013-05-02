@@ -1,28 +1,26 @@
 class BooksHr.Views.BooksItemEdit extends Backbone.View
   el: '#app'
   template: JST['books/itemEdit']
-  events:
-    'click a.remove-book' : 'removeBook'
-    'submit #edit-book-form' : 'updateBook'
   initialize: ->
     @model.bind 'change', @render, @
-    @model.bind 'destroy', @remove, @
     @model.fetch(reset: true)
+    
   render: ->
+    
     @$el.html @template(book: @model)
+    @$el.find('#edit-book-form-'+@model.get('id')+ ' .remove-book').unbind().bind('click',@removeBook)
+    @$el.find('#edit-book-form-'+@model.get 'id').unbind().bind('submit',@updateBook)
     @
-  removeBook: ->
+  removeBook: =>
     @model.destroy({ 
       success: ->
-        close()
         app = new BooksHr.Routers.Books()
-        app.navigate '', {trigger: false} 
-        location.reload() 
+        app.navigate '', {trigger: true} 
       error: ->
          alert('There was an error please try again or reload the page')
       })
     
-  updateBook: (event)->
+  updateBook: (event) =>
     event.preventDefault()
     @model.set { 
       name: @$('#name').val()
@@ -33,9 +31,10 @@ class BooksHr.Views.BooksItemEdit extends Backbone.View
     @model.save(null,{ 
       success: ->
         app = new BooksHr.Routers.Books()
-        app.navigate '', {trigger: false}
-        location.reload()  
+        app.navigate '', {trigger: true}
+        #location.reload()  
       error: ->
          alert('There was an error please try again or reload the page')
       })
     #@model.update()
+    return false;

@@ -4,6 +4,7 @@ class BooksHr.Views.BooksIndex extends Backbone.View
   events:
     'submit #add-book-form' : 'createOnSubmit'
   initialize: ->
+    @render()
     @collection.bind 'reset', @render, @
     @collection.bind 'add', @addBook, @
   render: ->
