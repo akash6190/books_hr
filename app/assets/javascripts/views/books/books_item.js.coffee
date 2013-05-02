@@ -7,7 +7,7 @@ class BooksHr.Views.BooksItem extends Backbone.View
     @model.bind 'change', @render,@
     @model.bind 'destroy', @remove, @
   render: ->
-    @$el.html @template(book: @model)
+    @$el.html @template(book: @model) if @model.isValid()
     @
   removeBook: ->
     @model.destroy()
